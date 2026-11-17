@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>البرنس بلايستيشن</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&family=Lalezar&display=swap">
+<style>
+:root{--bg:#f4f5fb;--card:#fff;--tx:#14162b;--mut:#6b6f8a;--bd:#e0e2f0;--ac:#3b5bfd;--ok:#12a150;--okb:#dff6e8;--no:#d92d3a;--nob:#fde5e7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1020;--card:#181b33;--tx:#eef0ff;--mut:#9a9fc2;--bd:#2a2e52;--ac:#7189ff;--ok:#3ddc84;--okb:#12341f;--no:#ff6b76;--nob:#3a1519}}
+:root[data-theme="dark"]{--bg:#0e1020;--card:#181b33;--tx:#eef0ff;--mut:#9a9fc2;--bd:#2a2e52;--ac:#7189ff;--ok:#3ddc84;--okb:#12341f;--no:#ff6b76;--nob:#3a1519}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",Tahoma,Arial,sans-serif;padding:14px;max-width:980px;margin-inline:auto}
+h1{font-size:22px;margin:6px 0 12px}h2{font-size:17px;margin:20px 0 10px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button{flex:1;padding:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.card h3{margin:0 0 4px;font-size:18px}
+.mut{color:var(--mut);font-size:13px}
+.badge{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:99px;font-weight:700;font-size:15px}
+.free{background:var(--okb);color:var(--ok)}.busy{background:var(--nob);color:var(--no)}
+button.b,select,input{font:inherit;padding:8px 10px;border-radius:9px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}
+button.b{cursor:pointer;background:var(--ac);color:#fff;border:0}
+button.b.red{background:var(--no)}button.b.gray{background:var(--bd);color:var(--tx)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.big{font-size:22px;font-weight:700;display:inline-block}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat b{display:block;font-size:24px;margin-top:4px}
+.note{background:var(--nob);color:var(--no);padding:8px 12px;border-radius:10px;margin-bottom:12px;font-size:13px}
+input.sm{width:90px}
+:root{--g2:#06b6d4;--ac:#7c3aed}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ac:#a78bfa;--bg:#0a0a1f}}
+:root[data-theme="dark"]{--ac:#a78bfa;--bg:#0a0a1f}
+body{background:radial-gradient(circle at 8% 0%,rgba(124,58,237,.25),transparent 40%),radial-gradient(circle at 92% 8%,rgba(6,182,212,.22),transparent 40%),var(--bg)}
+.hero{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;margin:4px 0 14px;color:#fff;background:linear-gradient(120deg,#7c3aed,#06b6d4 60%,#ec4899);box-shadow:0 8px 30px rgba(124,58,237,.35)}
+.hero h1{margin:0;font-size:26px}.hero .quote{margin-top:6px;font-size:14px;opacity:.97}
+.sym{display:flex;gap:12px;font-weight:800;font-size:20px;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.sym .t{color:#86efac}.sym .c{color:#fda4af}.sym .x{color:#93c5fd}.sym .s{color:#f9a8d4}
+#cust .card{border-top:4px solid var(--g2)}
+.card h3::before{content:"🎮 "}
+.bill{display:flex;align-items:center;gap:12px;margin-top:10px;padding:12px;border-radius:14px;color:#fff;background:linear-gradient(135deg,#0f3d1e,#166534 55%,#14532d);border:2px solid #facc15;box-shadow:0 6px 0 #854d0e,0 10px 22px rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.25)}
+.bill svg{flex:none;filter:drop-shadow(0 3px 4px rgba(0,0,0,.5))}
+.bp{font-size:34px;font-weight:900;color:#facc15;text-shadow:0 3px 0 #713f12,0 6px 12px rgba(0,0,0,.5);letter-spacing:1px;line-height:1.2}
+.bt{font-size:15px;font-weight:700}
+.st{color:#facc15;letter-spacing:3px;font-size:16px}
+body{font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;font-weight:800}
+h1,h2,h3,.bp{font-family:"Lalezar","Cairo","Segoe UI",Tahoma,sans-serif;font-weight:400;letter-spacing:.5px}
+h2{font-size:22px}.card h3{font-size:24px}
+.hero h1{font-size:36px;color:#fff7d1;text-shadow:0 3px 0 rgba(0,0,0,.25),0 0 18px rgba(250,204,21,.6)}
+.hero .quote{font-weight:800;font-size:15px}
+.bp{font-size:46px}
+.mut{font-weight:700}
+th{font-weight:900}
+button.b{font-weight:800}
+.tiles{display:flex;gap:10px;overflow-x:auto;margin:0 0 14px;padding:2px 2px 6px}
+.tile{flex:none;width:72px;text-align:center;font-size:13px;font-weight:900}
+.tile i{display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 auto 4px;border-radius:15px;font-size:28px;font-style:normal;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.chars{display:flex;gap:4px;margin-inline-start:auto;align-items:flex-end;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+@media (max-width:520px){.chars svg{width:30px;height:36px}.hero h1{font-size:28px}}
+body{background:radial-gradient(circle at 50% 108%,rgba(255,214,102,.65),transparent 42%),linear-gradient(180deg,#24083f 0%,#6d1fa0 30%,#d62f8d 62%,#ff7a45 100%) fixed;color:#fff}
+.card{color:var(--tx)}
+h2{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.hero{background:linear-gradient(120deg,#0891b2,#7c3aed 55%,#f43f8e);box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 2px rgba(255,255,255,.28)}
+.tile{color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.card{background:rgba(20,8,40,.38);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.28);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.card .mut{color:rgba(255,255,255,.8)}
+.card th,.card td{border-color:rgba(255,255,255,.2)}
+.card select,.card input{background:rgba(0,0,0,.35);color:#fff;border-color:rgba(255,255,255,.3)}
+.card select option{color:#111;background:#fff}
+.card input::placeholder{color:rgba(255,255,255,.6)}
+.card button.b.gray{background:rgba(255,255,255,.22);color:#fff}
+</style>
+</head>
+<body>
+<div class="hero"><svg viewBox="0 0 140 84" width="112" height="67" aria-hidden="true" style="flex:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))"><path d="M38 8h64c13 0 21 9 25 31l8 30c2 9-9 13-16 7L99 62H41L19 76c-7 6-18 2-16-7l8-30C15 17 25 8 38 8z" fill="#2f6bff"/><path d="M45 10h50c9 0 14 6 15 16l2 22c0 6-4 9-9 9H37c-5 0-9-3-9-9l2-22c1-10 6-16 15-16z" fill="#14151f"/><rect x="57" y="15" width="26" height="15" rx="5" fill="#d7d9e6"/><path d="M52 27v-9c0-4 3-7 7-7h22c4 0 7 3 7 7v9" fill="none" stroke="#bae6fd" stroke-width="2.6" stroke-linecap="round"/><circle cx="55" cy="49" r="7.5" fill="#2a2c3e" stroke="#4b4e69" stroke-width="1.5"/><circle cx="85" cy="49" r="7.5" fill="#2a2c3e" stroke="#4b4e69" stroke-width="1.5"/><path d="M32 33v10M27 38h10" stroke="#e5e7f5" stroke-width="3.4" stroke-linecap="round"/><circle cx="108" cy="30" r="3" fill="#4ade80"/><circle cx="115" cy="37" r="3" fill="#fb7185"/><circle cx="108" cy="44" r="3" fill="#60a5fa"/><circle cx="101" cy="37" r="3" fill="#f472b6"/></svg><div><h1>البرنس بلايستيشن</h1><div class="sym"><span class="t">△</span><span class="c">○</span><span class="x">✕</span><span class="s">□</span></div><div class="quote" id="q"></div></div><div class="chars"><svg viewBox="0 0 48 56" width="46" height="54" aria-hidden="true"><ellipse cx="24" cy="19" rx="20" ry="5" fill="#92400e"/><path d="M12 18c0-12 24-12 24 0z" fill="#b45309"/><circle cx="24" cy="26" r="9" fill="#e5b98f"/><path d="M12 56c1-14 7-18 12-18s11 4 12 18z" fill="#7f1d1d"/><path d="M17 33h14v5H17z" fill="#dc2626"/></svg><svg viewBox="0 0 48 56" width="46" height="54" aria-hidden="true"><circle cx="24" cy="22" r="10" fill="#e5b98f"/><path d="M12 20c2-10 22-10 24 0z" fill="#111827"/><rect x="14" y="21" width="20" height="5" rx="2.5" fill="#facc15"/><path d="M6 56c2-16 10-19 18-19s16 3 18 19z" fill="#111827"/><path d="M21 38l3 8 3-8z" fill="#fff"/></svg><svg viewBox="0 0 48 56" width="46" height="54" aria-hidden="true"><circle cx="24" cy="16" r="9" fill="#e5b98f"/><path d="M15 14c1-7 17-7 18 0z" fill="#1f2937"/><path d="M9 56c1-16 8-20 15-20s14 4 15 20z" fill="#2563eb"/><circle cx="36" cy="46" r="8" fill="#fff" stroke="#111" stroke-width="1.5"/><path d="M36 41l4 3-1.5 5h-5L32 44z" fill="#111"/></svg></div></div><div class="tiles"><div class="tile"><i style="background:linear-gradient(135deg,#16a34a,#14532d)">🔫</i>GTA V</div><div class="tile"><i style="background:linear-gradient(135deg,#dc2626,#7f1d1d)">🤠</i>RDR2</div><div class="tile"><i style="background:linear-gradient(135deg,#2563eb,#1e3a8a)">⚽</i>FC 27</div><div class="tile"><i style="background:linear-gradient(135deg,#0d9488,#134e4a)">🏟️</i>PES 19</div><div class="tile"><i style="background:linear-gradient(135deg,#f59e0b,#78350f)">🥊</i>MK 11</div></div>
+<div id="note"></div>
+<div id="nav" style="margin-bottom:14px"></div>
+<div id="cust"></div>
+<div id="staff" style="display:none"></div>
+<script>
+const MENU=[["شاي",10],["قهوة",15],["نسكافيه",15],["مياه",5],["بيبسي",15],["شيبسي",10]];
+const MULTI=30,rt=r=>r.type=='multi'?MULTI:r.rate;
+let be,isStaff=false,pend=null,rooms=[],sessions=[],menu=[],bookings=[],tab=1;
+const $=s=>document.querySelector(s);
+const esc=t=>{const d=document.createElement('span');d.textContent=t;return d.innerHTML};
+const day=t=>new Date(t).toLocaleDateString('en-CA');
+const fmtT=t=>new Date(t).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'});
+const hms=ms=>{let s=Math.floor(ms/1000);return [s/3600|0,(s%3600)/60|0,s%60].map(n=>String(n).padStart(2,'0')).join(':')};
+const cost=(r,ms)=>Math.ceil(rt(r)*Math.max(ms,(r.plan||0)*60000)/3600000);
+const extraTot=r=>(r.extras||[]).reduce((a,e)=>a+e.p,0);
+
+function localBE(){
+  let db={rooms:{},sessions:{}},L={};
+  try{db=JSON.parse(localStorage.getItem('ps')||'')||db}catch(e){}
+  ['rooms','sessions','menu','bookings'].forEach(k=>db[k]=db[k]||{});
+  const save=()=>{try{localStorage.setItem('ps',JSON.stringify(db))}catch(e){}};
+  const fire=c=>(L[c]||[]).forEach(f=>f(Object.entries(db[c]).map(([id,v])=>({id,...v}))));
+  return{mode:'local',
+    set:async(c,id,d)=>{db[c][id]=d;save();fire(c)},
+    del:async(c,id)=>{delete db[c][id];save();fire(c)},
+    watch:(c,cb)=>{(L[c]=L[c]||[]).push(cb);cb(Object.entries(db[c]).map(([id,v])=>({id,...v})))}};
+}
+async function init(){
+  let ok=true;try{localStorage.setItem('t','1')}catch(e){ok=false}
+  if(!ok)$('#note').innerHTML='<div class="note">⚠ المتصفح لا يسمح بحفظ البيانات من ملف محلي. ارفع الملف على netlify.com/drop أو افتحه من Chrome على الكمبيوتر.</div>';
+  be=localBE();isStaff=true;
+  be.watch('rooms',a=>{rooms=a.sort((x,y)=>(+x.num||0)-(+y.num||0));seed();render()});
+  be.watch('bookings',a=>{bookings=a;render()});
+  be.watch('sessions',a=>{sessions=a;render()});
+  be.watch('menu',a=>{menu=a.sort((x,y)=>x.id.localeCompare(y.id));render()});
+  show();
+}
+let seeded=false;
+function seed(){if(isStaff&&!seeded&&rooms.length==0){seeded=true;for(let i=1;i<=5;i++)be.set('rooms','r'+i,{num:i,name:'جهاز '+i,rate:20,busy:false})}}
+function bk(id){const l=bookings.filter(b=>b.room==id&&b.end>Date.now()&&day(b.start)==day(Date.now())).sort((a,b)=>a.start-b.start);return l.length?'<div class="mut" style="margin-top:8px">📅 محجوزة: '+l.map(b=>fmtT(b.start)+' - '+fmtT(b.end)).join(' ، ')+'</div>':''}
+let custMode=false,forceCust=false,forceStaff=false;
+function show(){custMode=forceCust||(!forceStaff&&location.hash=='#customer');tab=custMode?1:2;
+  $('#cust').style.display=custMode?'':'none';$('#staff').style.display=custMode?'none':'';
+  $('#nav').innerHTML=custMode?'<button class="b gray" id="ex">🔒 خروج (للموظف)</button>':'<button class="b" id="cd">✅ قفل اليوم</button> <button class="b" id="cm">🖥 شاشة الزبائن</button> <button class="b gray" id="bk1">💾 نسخة احتياطية</button> <label class="b gray" style="display:inline-block;cursor:pointer;padding:8px 10px;border-radius:9px">📂 استرجاع<input id="rs" type="file" accept=".json" hidden></label> <button class="b gray" id="csv">📊 تصدير التقرير (Excel)</button> <button class="b gray" id="pn">🔑 الرقم السري</button>';
+  render()}
+addEventListener('hashchange',show);
+addEventListener('storage',e=>{if(e.key=='ps'&&custMode)location.reload()});
+setInterval(()=>{if(custMode)render()},30000);
+const nz=v=>String(v).trim().replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+$('#nav').onkeydown=e=>{if(e.key=='Enter'){if(e.target.id=='pin')$('#ok').click();if(e.target.id=='np')$('#sp').click()}};
+function dl(n,t,ty){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:ty}));a.download=n;document.body.appendChild(a);a.click();a.remove()}
+$('#nav').onclick=e=>{const i=e.target.id;
+  if(i=='cd'){const td=day(Date.now()),l=sessions.filter(x=>day(x.end)==td).sort((x,y)=>x.end-y.end),tot=l.reduce((a,x)=>a+x.total,0),ex=l.reduce((a,x)=>a+x.extras,0),mn=l.reduce((a,x)=>a+x.mins,0),busy=rooms.filter(r=>r.busy).length;
+    const hd='الجهاز,النوع,من,إلى,الدقائق,اللعب,مشروبات,الإجمالي\n';
+    dl('prince-'+td+'.csv','\ufeff'+hd+l.map(x=>[x.roomName,x.type=='multi'?'مالتي':'عادي',fmtT(x.start),fmtT(x.end),x.mins,x.total-x.extras,x.extras,x.total].join(',')).join('\n')+'\n'+['الإجمالي','','','',mn,tot-ex,ex,tot].join(','),'text/csv');
+    $('#note').innerHTML='<div class="note" style="background:#dff6e8;color:#12703a">✅ تم تنزيل تقرير '+td+': الإيراد '+tot+' ج • '+(mn/60).toFixed(1)+' ساعة • '+l.length+' جلسة'+(busy?' • ⚠ فيه '+busy+' جهاز لسه شغال وغير داخل في التقرير':'')+'</div>'}
+  if(i=='cm'){forceCust=true;forceStaff=false;try{location.hash='customer'}catch(x){}try{document.documentElement.requestFullscreen().catch(()=>{})}catch(x){}}
+  if(i=='ex'){$('#nav').innerHTML='<input id="pin" type="password" inputmode="numeric" class="sm" placeholder="الرقم السري"> <button class="b" id="ok">دخول</button> <span class="mut" id="pm"></span>';$('#pin').focus()}
+  if(i=='ok'){if(nz($('#pin').value)===nz(localStorage.getItem('psPin')||'0456')){forceCust=false;forceStaff=true;try{location.hash=''}catch(x){}try{if(document.fullscreenElement)document.exitFullscreen()}catch(x){}show()}else{$('#pm').textContent='الرقم غلط'}}
+  if(i=='pn'){$('#nav').innerHTML='<input id="np" type="password" inputmode="numeric" class="sm" placeholder="رقم سري جديد"> <button class="b" id="sp">حفظ</button> <button class="b gray" id="cn">إلغاء</button>';$('#np').focus()}
+  if(i=='sp'){const v=nz($('#np').value);if(v)localStorage.setItem('psPin',v);show()}
+  if(i=='cn')show()
+  if(i=='bk1')dl('prince-backup-'+day(Date.now())+'.json',localStorage.getItem('ps')||'{}','application/json');
+  if(i=='csv'){const h='التاريخ,الجهاز,النوع,من,إلى,الدقائق,اللعب,مشروبات,الإجمالي\n';dl('prince-report.csv','\ufeff'+h+[...sessions].sort((x,y)=>x.end-y.end).map(x=>[day(x.end),x.roomName,x.type=='multi'?'مالتي':'عادي',fmtT(x.start),fmtT(x.end),x.mins,x.total-x.extras,x.extras,x.total].join(',')).join('\n'),'text/csv')}};
+$('#nav').onchange=e=>{if(e.target.id=='rs'){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{JSON.parse(r.result);localStorage.setItem('ps',r.result);location.reload()}catch(x){$('#note').innerHTML='<div class="note">ملف النسخة الاحتياطية غير صالح</div>'}};r.readAsText(f)}};
+const beeped={};
+function beep(){try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();setTimeout(()=>{o.stop();c.close()},900)}catch(e){}}
+const QS=['اللعب مش مجرد وقت فراغ، ده شحن للروح 🎮','كل مستوى جديد بيبدأ بقرار: ابدأ الجولة!','الفوز الحقيقي إنك تستمتع بكل لحظة لعب.','مع الأصحاب أي لعبة بتبقى أحلى.','اضغط Start وسيب الدنيا برّا.','البطل مش اللي بيكسب دايمًا، البطل اللي بيحاول تاني.','ساعة لعب حلوة تغيّر اليوم كله.','الجولة الجاية أحلى من اللي فاتت.','اللعب مع العيلة ذكريات مبتتنساش.','كل خسارة درس، وكل فوز حكاية.','ركّز وهدّي أعصابك، والكأس بتاعك.','لما الشاشة تنوّر، الحماس يبدأ.','التحدي الحقيقي إنك تكسر رقمك القياسي.','خد نفس عميق وابدأ الجولة بابتسامة.','الصبر مفتاح أي لعبة صعبة.','مكان اللمّة والضحك والتحدي: البرنس.','اللي بيلعب بروح رياضية هو الكسبان دايمًا.','أصعب مرحلة بتبقى أحلى لحظة فوز.','جاهز للمغامرة؟ الجهاز مستنيك.','اللعب فن، والاستمتاع هو الجائزة.','فريق واحد، هدف واحد، ضحك كتير.','يوم جديد، تحديات جديدة، رقم قياسي جديد.','اللعبة بتبدأ لما تقرر تكمّل.','متخافش من الخسارة، الجولة الجاية في إيدك.','الوقت اللي بتضحك فيه مش ضايع.','كل لاعب كبير بدأ بجولة صغيرة.','خلّي كل ضغطة زر بشغف.','أجمل الأوقات بتتعمل مع أجمل الناس.','ادخل المعركة وإنت واثق من نفسك.','الجائزة الكبرى: لحظة فرح مع صحابك.'];
+$('#q').textContent='“'+QS[Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/864e5)%QS.length]+'”';
+
+function render(){
+  if(!be)return;
+  $('#cust').innerHTML=rooms.length?'<div class="grid">'+rooms.map(r=>`<div class="card"><h3>${esc(r.name)}</h3><div class="mut">PS4 • ${r.rate} جنيه / ساعة</div><span class="badge ${r.busy?'busy':'free'}">${r.busy?'🔴 مشغولة':'🟢 فاضية'}</span>${r.busy?`<div class="mut" style="margin-top:8px">من الساعة ${fmtT(r.start)}${r.plan?' • تنتهي '+fmtT(r.start+r.plan*60000):''}</div>`:''}${bk(r.id)}</div>`).join('')+'</div>':'<div class="card mut">جاري التحميل...</div>';
+  if(isStaff&&tab==2)renderStaff();
+}
+function renderStaff(){
+  const today=day(Date.now()),ts=sessions.filter(s=>day(s.end)==today);
+  const rev=ts.reduce((a,s)=>a+s.total,0),ex=ts.reduce((a,s)=>a+s.extras,0),mins=ts.reduce((a,s)=>a+s.mins,0);
+  const per=rooms.map(r=>{const l=ts.filter(s=>s.room==r.id);return{n:r.name,c:l.length,m:l.reduce((a,s)=>a+s.mins,0),t:l.reduce((a,s)=>a+s.total,0)}});
+  const act=document.activeElement&&document.activeElement.id;
+  if(document.activeElement&&document.activeElement.tagName=='INPUT')return;
+  $('#staff').innerHTML=`
+  <div class="grid">${rooms.map(r=>`<div class="card"><h3>${esc(r.name)}</h3><div class="mut">${r.busy?(r.type=='multi'?'مالتي':'عادي')+' • '+rt(r):r.rate} جنيه / ساعة</div>
+   ${r.busy?`<div class="bill"><svg viewBox="0 0 60 60" width="60" height="60" aria-hidden="true"><circle cx="30" cy="22" r="11" fill="#e5b98f"/><path d="M17 20c2-10 24-10 26 0z" fill="#111827"/><rect x="19" y="21" width="22" height="6" rx="3" fill="#facc15"/><path d="M8 58c2-16 12-20 22-20s20 4 22 20z" fill="#111827"/><path d="M26 40l4 9 4-9z" fill="#fff"/></svg><div><div class="bt" data-t="${r.id}"></div><div class="bp" data-p="${r.id}"></div><div class="st" data-s="${r.id}"></div></div></div>
+   <div class="mut">مشروبات: ${extraTot(r)} جنيه • بدأت ${fmtT(r.start)}</div>${(r.extras||[]).map((e,i)=>`<div class="mut">${esc(e.n)} ${e.p} ج <button class="b gray" data-rx="${r.id}" data-i="${i}">✕</button></div>`).join('')}<div class="mut" style="margin-top:8px">تمديد المدة</div><div class="row" style="margin-top:4px"><button class="b gray" data-ext="${r.id}" data-m="30">+نص ساعة</button><button class="b gray" data-ext="${r.id}" data-m="60">+ساعة</button></div><div class="mut" style="margin-top:8px">تعديل الوقت (بالدقائق)</div><div class="row" style="margin-top:4px"><button class="b gray" data-adj="${r.id}" data-m="-15">-15</button><button class="b gray" data-adj="${r.id}" data-m="15">+15</button><input id="ad${r.id}" class="sm" type="number" placeholder="مثلاً 30 أو -10"><button class="b gray" data-adj="${r.id}">تطبيق</button></div>
+   <div class="row"><select id="m${r.id}">${menu.map(m=>`<option value="${m.id}">${esc(m.name)} (${m.price})</option>`).join('')}</select><button class="b gray" data-add="${r.id}">+ إضافة</button></div>
+   ${pend==r.id?`<div class="row"><button class="b red" data-stop="${r.id}" data-ok="1">✔ تأكيد الإنهاء</button><button class="b gray" data-cancel="1">إلغاء</button></div>`:`<div class="row"><button class="b red" data-stop="${r.id}">إنهاء وحساب</button></div>`}`
+   :`<span class="badge free">🟢 فاضية</span><div class="mut">نوع اللعب:</div><select id="ty${r.id}"><option value="normal">عادي (${r.rate} ج)</option><option value="multi">مالتي (${MULTI} ج)</option></select><div class="mut" style="margin-top:8px">مدة اللعب:</div><div class="row" style="margin-top:4px">${[[30,'نص ساعة'],[60,'ساعة'],[120,'ساعتين'],[180,'3 ساعات'],[0,'مفتوح']].map(p=>`<button class="b" data-start="${r.id}" data-p="${p[0]}">${p[1]}</button>`).join('')}</div><div class="row" style="margin-top:4px"><input id="pl${r.id}" class="sm" type="number" placeholder="دقائق"><button class="b gray" data-start="${r.id}" data-p="x">بدء بمدة مخصصة</button></div><div class="row"><input id="rt${r.id}" class="sm" type="number" value="${r.rate}"><button class="b gray" data-rate="${r.id}">حفظ السعر</button></div>`}</div>`).join('')}</div>
+  
+  <h2>📅 حجز غرفة</h2><div class="card"><div class="row" style="margin-top:0"><select id="bkr">${rooms.map(r=>`<option value="${r.id}">${esc(r.name)}</option>`).join('')}</select><select id="bkt"><option value="normal">عادي</option><option value="multi">مالتي (${MULTI} ج)</option></select></div><div class="row"><input id="bkd" type="date" value="${today}"><input id="bkh" type="time"><input id="bkn" class="sm" type="number" step="0.5" placeholder="عدد الساعات"></div><div class="row"><button class="b" id="addb">حجز</button><span class="mut" id="bkmsg"></span></div></div>
+  <div class="grid" style="margin-top:12px">${bookings.filter(b=>b.end>Date.now()).sort((a,b)=>a.start-b.start).map(b=>`<div class="card"><b>${esc(b.roomName)}</b> • ${b.type=='multi'?'مالتي':'عادي'}<div class="mut">${day(b.start)} • ${fmtT(b.start)} ← ${fmtT(b.end)} (${b.mins/60} ساعة) • ${b.price} ج</div><div class="row"><button class="b" data-bs="${b.id}">▶ بدء الآن</button><button class="b red" data-bd="${b.id}">${pend=='b'+b.id?'تأكيد الإلغاء':'إلغاء'}</button></div></div>`).join('')}</div>
+  <h2>قائمة المنتجات (أضف أصنافك)</h2><div class="card"><div class="row" style="margin-top:0"><input id="mn" placeholder="اسم المنتج"><input id="mp" class="sm" type="number" placeholder="السعر"><button class="b" id="addm">إضافة</button></div><div class="row">${menu.map(m=>`<span class="badge free">${esc(m.name)} ${m.price} ج <button class="b gray" data-dm="${m.id}">✕</button></span>`).join('')||'<span class="mut">لا توجد منتجات، أضف أول منتج</span>'}</div></div>
+  <h2>تقرير اليوم (${today})</h2>
+  <div class="stats"><div class="card stat">الإيراد الكلي<b>${rev} ج</b></div><div class="card stat">مبيعات المشروبات<b>${ex} ج</b></div><div class="card stat">إجمالي الساعات<b>${(mins/60).toFixed(1)}</b></div><div class="card stat">عدد الجلسات<b>${ts.length}</b></div></div>
+  <h2>حسب الغرفة</h2><div class="card wrap"><table><tr><th>الغرفة</th><th>الجلسات</th><th>الساعات</th><th>الإيراد</th></tr>${per.map(p=>`<tr><td>${esc(p.n)}</td><td>${p.c}</td><td>${(p.m/60).toFixed(1)}</td><td>${p.t} ج</td></tr>`).join('')}</table></div>
+  <h2>آخر الجلسات</h2><div class="card wrap"><table><tr><th>الغرفة</th><th>من</th><th>إلى</th><th>المدة</th><th>اللعب</th><th>مشروبات</th><th>الإجمالي</th><th>تعديل المدة (دقائق)</th></tr>${ts.sort((a,b)=>b.end-a.end).map(s=>`<tr><td>${esc(s.roomName)}${s.type=='multi'?' (مالتي)':''}</td><td>${fmtT(s.start)}</td><td>${fmtT(s.end)}</td><td>${s.mins} د</td><td>${s.total-s.extras} ج</td><td>${s.extras} ج</td><td><b>${s.total} ج</b></td><td><input id="sm${s.id}" class="sm" type="number" value="${s.mins}"> <button class="b gray" data-sv="${s.id}">حفظ</button> <button class="b red" data-sd="${s.id}">${pend=='s'+s.id?'تأكيد الحذف':'✕'}</button></td></tr>`).join('')||'<tr><td colspan="8" class="mut">لا جلسات اليوم</td></tr>'}</table></div>`;
+  tick();
+}
+function tick(){document.querySelectorAll('[data-t]').forEach(e=>{const r=rooms.find(x=>x.id==e.dataset.t);if(r&&r.busy){const ms=Date.now()-r.start;const pl=(r.plan||0)*60000;if(pl&&ms>=pl&&!beeped[r.id+r.start]){beeped[r.id+r.start]=1;beep()}e.textContent=(pl?(ms<pl?'متبقي '+hms(pl-ms):'⏰ انتهى +'+hms(ms-pl)):hms(ms));e.style.color=pl&&ms>=pl?'#fca5a5':'';const P=document.querySelector('[data-p="'+r.id+'"]');if(P)P.textContent=(cost(r,ms)+extraTot(r))+' ج';const S=document.querySelector('[data-s="'+r.id+'"]');if(S){const n=Math.min(5,Math.max(1,Math.ceil(ms/3600000)));S.textContent='★'.repeat(n)+'☆'.repeat(5-n)}}})}
+setInterval(tick,1000);
+$('#staff').addEventListener('click',async e=>{
+  const t=e.target,d=t.dataset;
+    if(t.id=='addm'){const n=$('#mn').value.trim(),p=+$('#mp').value;if(n&&p>0)await be.set('menu','m'+Date.now(),{name:n,price:p});return}
+  if(d.dm){await be.del('menu',d.dm);return}
+  if(d.cancel){pend=null;renderStaff();return}
+  if(t.id=='addb'){const rid=$('#bkr').value,rm=rooms.find(x=>x.id==rid),dd=$('#bkd').value,tm=$('#bkh').value,h=+$('#bkn').value,ty=$('#bkt').value,msg=$('#bkmsg');
+    if(!rm||!dd||!tm||!(h>0)){msg.textContent='اكمل الغرفة والوقت وعدد الساعات';return}
+    const st=new Date(dd+'T'+tm).getTime(),mins=Math.round(h*60),en=st+mins*60000;
+    if(en<=Date.now()){msg.textContent='الوقت فات';return}
+    if(bookings.some(b=>b.room==rid&&b.start<en&&b.end>st)){msg.textContent='⚠ الغرفة محجوزة في الوقت ده';return}
+    await be.set('bookings','b'+Date.now(),{room:rid,roomName:rm.name,start:st,end:en,mins,type:ty,price:Math.ceil((ty=='multi'?MULTI:rm.rate)*mins/60)});return}
+  if(d.bd){if(pend!=='b'+d.bd){pend='b'+d.bd;renderStaff();return}pend=null;await be.del('bookings',d.bd);return}
+  if(d.bs){const b=bookings.find(x=>x.id==d.bs),rm=b&&rooms.find(x=>x.id==b.room);if(!rm||rm.busy)return;const{id:rid,...rr}=rm;await be.set('rooms',rid,{...rr,busy:true,start:Date.now(),plan:b.mins,type:b.type,extras:[]});await be.del('bookings',b.id);return}
+  if(d.sv||d.sd){const s=sessions.find(x=>x.id==(d.sv||d.sd));if(!s)return;const{id:sid,...sr}=s;
+    if(d.sd){if(pend!=='s'+sid){pend='s'+sid;renderStaff();return}pend=null;await be.del('sessions',sid);return}
+    const m=+$('#sm'+sid).value;if(!(m>0))return;const rm=rooms.find(x=>x.id==s.room);const rate=s.rate||(rm?rm.rate:20);
+    await be.set('sessions',sid,{...sr,mins:m,rate,total:Math.ceil(rate*m/60)+s.extras});return}
+  const r=rooms.find(x=>x.id==(d.start||d.stop||d.add||d.rate||d.rx||d.adj||d.ext));if(!r)return;
+  const{id,...rest}=r;
+  if(d.start){let p=d.p=='x'?+$('#pl'+id).value:+d.p;if(d.p=='x'&&!(p>0))return;await be.set('rooms',id,{...rest,busy:true,start:Date.now(),plan:p,type:$('#ty'+id).value,extras:[]})}
+  if(d.add){const m=menu.find(x=>x.id==$('#m'+id).value);if(m)await be.set('rooms',id,{...rest,extras:[...(r.extras||[]),{n:m.name,p:m.price}]})}
+  if(d.ext)await be.set('rooms',id,{...rest,plan:(r.plan||Math.ceil((Date.now()-r.start)/60000))+(+d.m)});
+  if(d.rx){const ex=[...(r.extras||[])];ex.splice(+d.i,1);await be.set('rooms',id,{...rest,extras:ex})}
+  if(d.adj){const m=d.m!==undefined?+d.m:+$('#ad'+id).value;if(m)await be.set('rooms',id,{...rest,start:Math.min(Date.now(),r.start-m*60000)})}
+  if(d.rate){const v=+$('#rt'+id).value;if(v>0)await be.set('rooms',id,{...rest,rate:v})}
+  if(d.stop){const end=Date.now(),ms=end-r.start,ex=extraTot(r),tot=cost(r,ms)+ex;
+    if(!d.ok){pend=r.id;renderStaff();return}pend=null;
+    await be.set('sessions','s'+end,{room:id,roomName:r.name,rate:rt(r),type:r.type||'normal',start:r.start,end,mins:Math.max(1,Math.round(Math.max(ms,(r.plan||0)*60000)/60000)),extras:ex,total:tot});
+    await be.set('rooms',id,{num:r.num,name:r.name,rate:r.rate,busy:false})}
+});
+init();
+</script>
+</body>
+</html>
